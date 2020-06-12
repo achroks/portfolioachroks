@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid-19</title>
+</head>
+<body>
+<h1>
+
+    Covid-19 numbers in the
+    <div id="land"></div>
+</h1>
+
+Datum:
+<div id="datum"></div>
+
+Aantal doden:
+<div id="totaaldoden"></div>
+
+Nieuwe doden:
+<div id="nieuwedoden"></div>
+
+<script lang="text/javascript">
+    fetch('https://api.covid19api.com/summary')
+        .then(function (resp) {
+            return resp.json()
+        })//conversie data naar json
+
+        .then(function (data) {
+            console.log(data);
+            console.log(data.Countries[119].Country);
+            console.log(data.Countries[119].TotalDeaths);
+            document.getElementById("land").innerHTML = (data.Countries[119].Country);
+            document.getElementById("datum").innerHTML = (data.Countries[119].Date);
+            document.getElementById("totaaldoden").innerHTML = (data.Countries[119].TotalDeaths);
+            document.getElementById("nieuwedoden").innerHTML = (data.Countries[119].NewDeaths);
+
+        })
+        .catch(function () { //catch any errors
+        });
+</script>
+
+</body>
+</html>

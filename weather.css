@@ -1,0 +1,10 @@
+.weather {
+    font-size: 2rem;
+    color: #b67474;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+input[type=text] {
+    padding: 10px
+}
